@@ -10,8 +10,6 @@ type SquareProps = {
 }
 
 export const Square = (props: SquareProps) => {
-  // const [value, setValue] = useState<SquareState>(null);
-
   return (
     <button className="square" onClick={ () => props.onClick()}>
       {props.value}
