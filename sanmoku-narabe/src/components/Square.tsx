@@ -1,15 +1,20 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import '../styles/square.css';
 
 
-type SquareState = 'X' | null;
+type SquareState = 'X'| 'O' | null;
 
-export const Square = () => {
-  const [value, setValue] = useState<SquareState>(null);
+type SquareProps = {
+  value: SquareState
+  onClick: () => void
+}
+
+export const Square = (props: SquareProps) => {
+  // const [value, setValue] = useState<SquareState>(null);
 
   return (
-    <button className="square" onClick={ () => { setValue("X") }}>
-      {value}
+    <button className="square" onClick={ () => props.onClick()}>
+      {props.value}
     </button>
   );
 }
