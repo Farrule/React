@@ -1,13 +1,15 @@
 import React from 'react';
-import { Task } from './Types';
+import { useDispatch } from 'react-redux';
+import { deleteTask, doneTask } from '../modules/tasksModule';
+import { Task } from '../Types';
 
 type Props = {
   task: Task
-  handleDone: (task: Task) => void
-  handleDelete: (task: Task) => void
 }
 
-export const TaskItem: React.FC<Props> = ({task, handleDone, handleDelete}) => {
+export const TaskItem: React.FC<Props> = ({ task }) => {
+  const dispatch = useDispatch();
+
   return (
     <li className={task.done ? 'done' : ''}>
       {/* チェックボックスとチェックボックスを押したときにタスクを完了にする */}
@@ -15,15 +17,15 @@ export const TaskItem: React.FC<Props> = ({task, handleDone, handleDelete}) => {
         <input
           type='checkbox'
           className='checkbox-input'
-          onClick={() => handleDone(task)}
-          defaultChecked={task.done}
+          onClick={() => dispatch(doneTask(task))}
+          defaultChecked={ task.done }
         />
       {/* タスクの内容をもつ */}
       <span className='checkbox-label'>{ task.title }</span>
       </label>
       {/* ボタンを押したときにタスクを削除する */}
       <button
-        onClick={() => handleDelete(task)}
+        onClick={() => dispatch(deleteTask(task))}
         className='btn is-delete'
       >delete</button>
     </li>
