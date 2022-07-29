@@ -18,13 +18,13 @@ export const TaskItem: React.FC<Props> = ({task, handleDone, handleDelete}) => {
           onClick={() => handleDone(task)}
           defaultChecked={task.done}
         />
-      </label>
       {/* タスクの内容をもつ */}
       <span className='checkbox-label'>{ task.title }</span>
+      </label>
       {/* ボタンを押したときにタスクを削除する */}
       <button
         onClick={() => handleDelete(task)}
-        className='btn is-toggled'
+        className='btn is-delete'
       >delete</button>
     </li>
   );
