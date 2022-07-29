@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
+import '../App.css';
 import { addTask } from '../modules/tasksModule';
 
 export const TaskInput: React.FC = () => {
@@ -21,6 +22,7 @@ export const TaskInput: React.FC = () => {
       <div className="inner">
         <input
           type="text"
+          className="input"
           value={inputTitle}
           onChange={handleInputChange}
           placeholder="タスクを入力してください"
