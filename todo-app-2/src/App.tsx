@@ -1,10 +1,9 @@
-import './App.css';
+import { Todo } from "./components/Todo";
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
+    <div>
+      <Todo />
     </div>
   );
 }
-
-export default App;
